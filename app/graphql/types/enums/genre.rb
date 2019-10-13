@@ -8,5 +8,4 @@ module Types
       value('Mystery', 'super interesting book')
     end
   end
-  
 end

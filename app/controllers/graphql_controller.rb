@@ -1,4 +1,4 @@
-## this is the apollo server where the typeDef, resolvers, context, subscription are merged
+## this is the apollo server where the typeDef, resolvers, conte
 
 class GraphqlController < ApplicationController
   def execute
