@@ -6,8 +6,10 @@ module Mutations
       argument :publication_date, Integer, required: true
       argument :genre, String, required: true
 
+      ## what is returned after mutation is complete
       type Types::BookType
 
+      ## resolver 
       def resolve(author_id:, **attributes)
         Author.find(author_id).books.create!(attributes)
       end

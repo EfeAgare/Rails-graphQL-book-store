@@ -1,5 +1,5 @@
 module Mutations
-  class BaseMutation < GraphQl::Schema::Mutation
+  class BaseMutation < GraphQL::Schema::Mutation
     null false
   end
 end
