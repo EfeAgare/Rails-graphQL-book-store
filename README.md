@@ -1,7 +1,7 @@
 # README
     
 ## Technologies
-  * Rails
+  * Ruby on Rails
   * Git
   * GraphQL
   * RSpec
