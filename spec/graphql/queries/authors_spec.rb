@@ -3,13 +3,10 @@ require 'rails_helper'
 module Queries
   RSpec.describe Authors, type: :request do
     describe '.resolve' do
-
-      let(:author){create(:author, first_name: 'Lee', last_name: 'Child', date_of_birth: Date.parse('1954-10-29'))}
-      let(:author1) {create(:author, first_name: 'Stephen', last_name: 'King', date_of_birth: Date.parse('1947-09-21'))}
-      let(:book){create(:book, author: author) }
-      let(:book1){create(:book, author: author1) }
       it 'returns all authors' do
-        
+        author = create(:author, first_name: 'Lee', last_name: 'Child', date_of_birth: Date.parse('1954-10-29'))
+        create(:author, first_name: 'Stephen', last_name: 'King', date_of_birth: Date.parse('1947-09-21'))
+        book = create(:book, author: author)
 
         post '/graphql', params: { query: query }
 
@@ -29,7 +26,7 @@ module Queries
             'firstName'   => 'Stephen',
             'lastName'    => 'King',
             'dateOfBirth' => '1947-09-21',
-            'books'       => [{ 'id' => book1.id.to_s }]
+            'books'       => []
           )
         ]
       end

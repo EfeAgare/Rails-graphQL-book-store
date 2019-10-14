@@ -3,11 +3,10 @@ require 'rails_helper'
 module Queries
   RSpec.describe Author, type: :request do
     describe '.resolve' do
-      let(:author) {create(:author, first_name: 'Lee', last_name: 'Child', date_of_birth: Date.parse('1954-10-29'))}
-      let(:book) {create(:book, author: author)}
-
       it 'returns author for provided id' do
-        
+        author = create(:author, first_name: 'Lee', last_name: 'Child', date_of_birth: Date.parse('1954-10-29'))
+        book   = create(:book, author: author)
+
         post '/graphql', params: { query: query(id: author.id) }
 
         json = JSON.parse(response.body)
