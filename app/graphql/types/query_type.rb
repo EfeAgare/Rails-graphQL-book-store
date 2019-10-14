@@ -15,6 +15,17 @@ module Types
     end
 
 
+    field :books, [Types::BookType], null: false do
+      description "fetch all authors"
+    end
+      
+    field :book, Types::BookType, null: false do
+      description "fetch an author with the id"
+
+      argument :id, ID, required: true
+    end
+
+
 
 
 
@@ -25,6 +36,14 @@ module Types
 
     def author(id:)
       Author.find_by(id: id)
+    end
+
+    def books
+      Book.all
+    end
+ 
+    def book(id:)
+       Book.find_by(id: id)
     end
   end
 end
