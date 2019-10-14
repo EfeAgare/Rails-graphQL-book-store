@@ -1,5 +1,5 @@
 module Queries
-  class Author < Queries::BaseQuery
+  class Authors < Queries::BaseQuery
     description "returns all author"
 
     type [Types::AuthorType], null: false
