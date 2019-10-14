@@ -1,5 +1,3 @@
-## this is the apollo server where the typeDef, resolvers, conte
-
 class GraphqlController < ApplicationController
   def execute
     variables = ensure_hash(params[:variables])
